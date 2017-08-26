@@ -24,8 +24,8 @@ restService.post('/echo', function(req, res) {
     //client.getLastEntryInFieldFeed(298464, 1); //same as API-Method "Retrieving the Last Entry in a Field Feed"
 
 	return res.json({
-        speech: 'The temperature is ' + client.getLastEntryInFieldFeed(298464, 1); + ' degrees',
-        displayText: 'The temperature is ' + client.getLastEntryInFieldFeed(298464, 1); + ' degrees',
+        speech: 'The temperature is ' + client.getLastEntryInFieldFeed(298464, 1) + ' degrees',
+        displayText: 'The temperature is ' + client.getLastEntryInFieldFeed(298464, 1) + ' degrees',
         source: 'Brad Auto Respond'
     });
     //return res.json({
