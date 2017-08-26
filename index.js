@@ -36,13 +36,13 @@ restService.post('/echo', function(req, res) {
 });
 
 restService.post('/temperature', function(req, res) {
-    var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
+    //var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
 	var ThingSpeakClient = require('thingspeakclient');
 	var client = new ThingSpeakClient();
 
     client.getLastEntryInFieldFeed(298464, 1, function(err2, response) {
     if (err2 == null) {
-        var t =  response.field1;
+        var t =  '12'
     }
 });
 
