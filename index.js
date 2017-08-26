@@ -42,11 +42,11 @@ restService.post('/temperature', function(req, res) {
     var https = require('https');
 
 
-    https.get("https://api.thingspeak.com/channels/298464/fields/1/last.json", (res) => {
+   // https.get("https://api.thingspeak.com/channels/298464/fields/1/last.json", (res) => {
         var body = ''; // Will contain the final response
     // Received data is a buffer.
     // Adding it to our body
-     res.on('data', (d) => {
+   //  res.on('data', (d) => {
         process.stdout.write(d);
         });
     // After the response is completed, parse it and log it to the console
