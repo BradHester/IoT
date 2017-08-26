@@ -21,7 +21,7 @@ restService.post('/echo', function(req, res) {
 
     var t = '23';
 
-    client.getLastEntryInFieldFeed(298464, 1,,t); //same as API-Method "Retrieving the Last Entry in a Field Feed"
+    client.getLastEntryInFieldFeed(298464, 1,'',t); //same as API-Method "Retrieving the Last Entry in a Field Feed"
 
 	return res.json({
         speech: t,
@@ -35,7 +35,7 @@ restService.post('/echo', function(req, res) {
     //});
 });
 
-/*restService.post('/slack-test', function(req, res) {
+restService.post('/slack-test', function(req, res) {
 
     var slack_message = {
         "text": "Details of JIRA board for Browse and Commerce",
@@ -89,7 +89,7 @@ restService.post('/echo', function(req, res) {
     });
 });
 
-*/
+
 
 
 restService.listen((process.env.PORT || 8000), function() {
