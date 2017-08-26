@@ -45,8 +45,8 @@ restService.post('/temperature', function(req, res) {
     client.getLastEntryInFieldFeed(298464, 1, {}, response)
 
 	return res.json({
-        speech: 'The temperature is ' + response + ' degrees',
-        displayText: 'The temperature is ' + response + ' degrees',
+        speech: 'The temperature is ' + response.field1 + ' degrees',
+        displayText: 'The temperature is ' + response.field1 + ' degrees',
         source: 'Brad Auto Respond'
     });
     //return res.json({
