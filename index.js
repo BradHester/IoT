@@ -2,8 +2,6 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
-var ThingSpeakClient = require('thingspeakclient');
-var client = new ThingSpeakClient();
 
 const restService = express();
 
