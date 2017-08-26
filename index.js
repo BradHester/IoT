@@ -3,6 +3,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const http = require('http');
+const https = require('https');
 const restService = express();
 
 
@@ -62,23 +63,25 @@ restService.post('/echo', function(req, res) {
 
 restService.post('/temperature', function(req, res) {
     var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
-
-    http.get("http://api.thingspeak.com/channels/298464/fields/1/last.json", (res) => {
+    var t = 'Error has occurred';
+    const req = http.get("http://api.thingspeak.com/channels/298464/fields/1/last.json", (res) => {
     // Received data is a buffer.
     // Adding it to our body
      res.on('data', (d) => {
         //process.stdout.write(d);
         var parsed = JSON.parse(d)
         console.log(parsed);
-        var t = parsed.field1.substring(0, parsed.field1.length-3);
-        var z = t.toString();
+        t = parsed.field1.substring(0, parsed.field1.length-3);
         });
 
      })
+    req.on('error',(e) => {
+        t = e;
+    });
 
 	return res.json({
-        speech: 'The temperature is ' + z + ' degrees',
-        displayText: 'The temperature is '  + z + ' degrees',
+        speech: 'The temperature is ' + t + ' degrees',
+        displayText: 'The temperature is '  + t + ' degrees',
         source: 'Brad Auto Respond'
     });
 
