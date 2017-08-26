@@ -19,7 +19,7 @@ restService.post('/echo', function(req, res) {
 
 	//client.attachChannel(298464, { readKey:'A1FE5T3THYNCRH05'});
 
-    var t = new String(client.getLastEntryInFieldFeed(298464, 1)); //same as API-Method "Retrieving the Last Entry in a Field Feed"
+    var t = client.getLastEntryInFieldFeed(298464, 1); //same as API-Method "Retrieving the Last Entry in a Field Feed"
 
 	return res.json({
         speech: t,
@@ -33,7 +33,7 @@ restService.post('/echo', function(req, res) {
     //});
 });
 
-restService.post('/slack-test', function(req, res) {
+/*restService.post('/slack-test', function(req, res) {
 
     var slack_message = {
         "text": "Details of JIRA board for Browse and Commerce",
@@ -87,7 +87,7 @@ restService.post('/slack-test', function(req, res) {
     });
 });
 
-
+*/
 
 
 restService.listen((process.env.PORT || 8000), function() {
