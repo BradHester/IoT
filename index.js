@@ -35,6 +35,31 @@ restService.post('/echo', function(req, res) {
     //});
 });
 
+restService.post('/temperature', function(req, res) {
+    var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
+	var ThingSpeakClient = require('thingspeakclient');
+	var client = new ThingSpeakClient();
+
+	client.attachChannel(298464, { readKey:'A1FE5T3THYNCRH05'});
+
+    client.getLastEntryInFieldFeed(298464, 1, function(err, response) {
+    if (err == null) {
+        console.log('read successfully. value is: ' + response.field1);
+    }
+    });
+
+	return res.json({
+        speech: 'The temperature is ' + response.field1 + ' degrees',
+        displayText: 'The temperature is ' + response.field1 + ' degrees',
+        source: 'Brad Auto Respond'
+    });
+    //return res.json({
+    //   speech: speech,
+    //    displayText: speech,
+    //    source: 'webhook-echo-sample'
+    //});
+});
+
 
 restService.listen((process.env.PORT || 8000), function() {
     console.log("Server up and listening");
