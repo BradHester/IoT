@@ -40,9 +40,9 @@ restService.post('/temperature', function(req, res) {
 	var ThingSpeakClient = require('thingspeakclient');
 	var client = new ThingSpeakClient();
 
-    client.getLastEntryInFieldFeed(298464, 1, function(err2, response) {
+    client.getLastEntryInFieldFeed(298464, 1, function(err2, resp2) {
     if (err2 == null) {
-        var t =  response.field3;
+        var t =  resp2.field3;
     }
 });
 
@@ -51,10 +51,10 @@ restService.post('/temperature', function(req, res) {
     // });
 
 	return res.json(
-        //speech: 'The temperature is ',// + t + ' degrees',
-        //displayText: 'The temperature is ',// + t + ' degrees',
-        response
-        //source: 'Brad Auto Respond'
+        speech: 'The temperature is ',// + t + ' degrees',
+        displayText: 'The temperature is ',// + t + ' degrees',
+        //resp2
+        source: 'Brad Auto Respond'
     );
     //return res.json({
     //   speech: speech,
