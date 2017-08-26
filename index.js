@@ -62,8 +62,8 @@ restService.post('/temperature', function(req, res) {
 	    //client.attachChannel(298464, { readKey:'A1FE5T3THYNCRH05'});*/
 
 	return res.json({
-        speech: 'The temperature is ' + parsed + ' degrees',
-        displayText: 'The temperature is ' + parsed + ' degrees',
+        speech: 'The temperature is '// + parsed + ' degrees',
+        displayText: 'The temperature is '// + parsed + ' degrees',
         source: 'Brad Auto Respond'
     });
     //return res.json({
