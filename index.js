@@ -79,7 +79,7 @@ https.get("https://api.thingspeak.com/channels/298464/fields/1/last.json", (res)
         console.log(parsed);
         var t = parsed.field1.substring(0, parsed.field1.length-3);
         var z = t.toString();
-        var speech = 'The temperature is ' + z + ' degrees'
+        var speech2 = 'The temperature is ' + z + ' degrees'
         console.log('The temperature is ' + z + ' degrees');
         });
 
@@ -88,8 +88,8 @@ https.get("https://api.thingspeak.com/channels/298464/fields/1/last.json", (res)
 //return res.json(response.JSON);
 
 	return res.json({
-        speech: speech,
-        displayText: speech,
+        speech: speech2,
+        displayText: speech2,
         source: 'Brad Auto Respond'
     });
 
