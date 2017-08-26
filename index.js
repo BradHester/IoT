@@ -39,14 +39,31 @@ restService.post('/temperature', function(req, res) {
     var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
 	var ThingSpeakClient = require('thingspeakclient');
 	var client = new ThingSpeakClient();
+    var https = require('https');
 
-	//client.attachChannel(298464, { readKey:'A1FE5T3THYNCRH05'});
 
-    client.getLastEntryInFieldFeed(298464, 1, {}, response)
+    https.get("https://api.thingspeak.com/channels/298464/fields/1/last.json", function(res) {
+        var body = ''; // Will contain the final response
+    // Received data is a buffer.
+    // Adding it to our body
+    res.on('data', function(data){
+        body += data;
+    });
+    // After the response is completed, parse it and log it to the console
+    res.on('end', function() {
+        var parsed = JSON.parse(body);
+         console.log(parsed);
+        });
+     })
+        // If any error has occured, log error to console
+        .on('error', function(e) {
+        console.log("Got error: " + e.message);
+        });
+	    //client.attachChannel(298464, { readKey:'A1FE5T3THYNCRH05'});
 
 	return res.json({
-        speech: 'The temperature is ' + response.field1 + ' degrees',
-        displayText: 'The temperature is ' + response.field1 + ' degrees',
+        speech: 'The temperature is ' + parsed + ' degrees',
+        displayText: 'The temperature is ' + parsed + ' degrees',
         source: 'Brad Auto Respond'
     });
     //return res.json({
