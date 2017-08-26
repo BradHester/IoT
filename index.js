@@ -55,7 +55,7 @@ restService.post('/temperature', function(req, res) {
     //    displayText: speech,
     //    source: 'webhook-echo-sample'
     //});
-//});
+});
 
 
 restService.listen((process.env.PORT || 8000), function() {
