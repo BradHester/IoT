@@ -75,8 +75,8 @@ restService.post('/temperature', function(req, res) {
      })
 
 	return res.json({
-        speech: 'The temperature is ' + z + ' degrees',
-        displayText: 'The temperature is ' + z + ' degrees',
+        speech: 'The temperature is ',// + z + ' degrees',
+        displayText: 'The temperature is ',//  + z + ' degrees',
         source: 'Brad Auto Respond'
     });
 
@@ -99,8 +99,8 @@ restService.post('/humidity', function(req, res) {
      })
 
 	return res.json({
-        speech: 'The humidity is ' + z + '%',
-        displayText: 'The humidity is ' + z + '%',
+        speech: 'The humidity is ',// + z + '%',
+        displayText: 'The humidity is ',// + z + '%',
         source: 'Brad Auto Respond'
     });
 
@@ -124,8 +124,8 @@ restService.post('/moisture', function(req, res) {
 
 
 	return res.json({
-        speech: 'The moisture is ' + z + ' degrees',
-        displayText: 'The moisture is ' + z + ' degrees',
+        speech: 'The moisture is ',// + z + ' degrees',
+        displayText: 'The moisture is ',// + z + ' degrees',
         source: 'Brad Auto Respond'
     });
 
