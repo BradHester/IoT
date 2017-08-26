@@ -13,19 +13,25 @@ restService.use(bodyParser.urlencoded({
 
 restService.use(bodyParser.json());
 
-//    http.get("http://api.thingspeak.com/channels/298464/fields/1/last.json", (res) => {
+//const req = http.get("http://api.thingspeak.com/channels/298464/fields/1/last.json", (response) => {
 //    // Received data is a buffer.
 //    // Adding it to our body
-//     res.on('data', (d) => {
+//     response.on('data', (d) => {
 //        //process.stdout.write(d);
 //        var parsed = JSON.parse(d)
 //        var t = parsed.field1.substring(0, parsed.field1.length-3);
-//        var z = t.toString();
+//        var z = "{'speech':" + "'The temperature is " + t + " degrees'" + ",'displayText':'The temperature is "  + t + " degrees'" + ", 'source':'Brad Auto Respond'}";
 //        console.log(z);
-//        });
-//
-//     })
 
+//        var obj = JSON.parse(z)
+
+//        });
+
+//     })
+//req.on('error',(e) => {
+//        t = e;
+//    });
+//req.end();
 
 
 //var ThingSpeakClient = require('thingspeakclient');
@@ -64,10 +70,10 @@ restService.post('/echo', function(req, res) {
 restService.post('/temperature', function(req, res) {
     var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
     var t = 'Error has occurred';
-    const req = http.get("http://api.thingspeak.com/channels/298464/fields/1/last.json", (res) => {
+    const req1 = http.get("http://api.thingspeak.com/channels/298464/fields/1/last.json", (response) => {
     // Received data is a buffer.
     // Adding it to our body
-     res.on('data', (d) => {
+     response.on('data', (d) => {
         //process.stdout.write(d);
         var parsed = JSON.parse(d)
         console.log(parsed);
@@ -75,13 +81,14 @@ restService.post('/temperature', function(req, res) {
         });
 
      })
-    req.on('error',(e) => {
+    req1.on('error',(e) => {
         t = e;
     });
+    req1.end();
 
 	return res.json({
-        speech: 'The temperature is ' + t + ' degrees',
-        displayText: 'The temperature is '  + t + ' degrees',
+//        speech: 'The temperature is ' + t + ' degrees',
+//        displayText: 'The temperature is '  + t + ' degrees',
         source: 'Brad Auto Respond'
     });
 
