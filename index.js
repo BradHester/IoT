@@ -53,14 +53,9 @@ restService.post('/temperature', function(req, res) {
 	return res.json(
         speech: 'The temperature is ',// + t + ' degrees',
         displayText: 'The temperature is ',// + t + ' degrees',
-        //resp2
         source: 'Brad Auto Respond'
     );
-    //return res.json({
-    //   speech: speech,
-    //    displayText: speech,
-    //    source: 'webhook-echo-sample'
-    //});
+
 });
 
 
