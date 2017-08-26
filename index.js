@@ -2,7 +2,7 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const https = require('https');
+const http = require('http');
 const restService = express();
 
 
@@ -12,18 +12,20 @@ restService.use(bodyParser.urlencoded({
 
 restService.use(bodyParser.json());
 
-//    https.get("https://api.thingspeak.com/channels/298464/fields/1/last.json", (res) => {
+//    http.get("http://api.thingspeak.com/channels/298464/fields/1/last.json", (res) => {
 //    // Received data is a buffer.
 //    // Adding it to our body
 //     res.on('data', (d) => {
 //        //process.stdout.write(d);
 //        var parsed = JSON.parse(d)
-//        console.log(parsed);
 //        var t = parsed.field1.substring(0, parsed.field1.length-3);
 //        var z = t.toString();
+//        console.log(z);
 //        });
 //
 //     })
+
+
 
 //var ThingSpeakClient = require('thingspeakclient');
 //	var client = new ThingSpeakClient();
@@ -61,7 +63,7 @@ restService.post('/echo', function(req, res) {
 restService.post('/temperature', function(req, res) {
     var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
 
-    https.get("https://api.thingspeak.com/channels/298464/fields/1/last.json", (res) => {
+    http.get("http://api.thingspeak.com/channels/298464/fields/1/last.json", (res) => {
     // Received data is a buffer.
     // Adding it to our body
      res.on('data', (d) => {
@@ -82,54 +84,6 @@ restService.post('/temperature', function(req, res) {
 
 });
 
-restService.post('/humidity', function(req, res) {
-    var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
-
-    https.get("https://api.thingspeak.com/channels/298464/fields/1/last.json", (res) => {
-    // Received data is a buffer.
-    // Adding it to our body
-     res.on('data', (d) => {
-        //process.stdout.write(d);
-        var parsed = JSON.parse(d)
-        console.log(parsed);
-        var t = parsed.field1.substring(0, parsed.field1.length-3);
-        var z = t.toString();
-        });
-
-     })
-
-	return res.json({
-        speech: 'The humidity is ',// + z + '%',
-        displayText: 'The humidity is ',// + z + '%',
-        source: 'Brad Auto Respond'
-    });
-
-});
-
-restService.post('/moisture', function(req, res) {
-    var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
-
-    https.get("https://api.thingspeak.com/channels/298464/fields/1/last.json", (res) => {
-    // Received data is a buffer.
-    // Adding it to our body
-     res.on('data', (d) => {
-        //process.stdout.write(d);
-        var parsed = JSON.parse(d)
-        console.log(parsed);
-        var t = parsed.field1.substring(0, parsed.field1.length-3);
-        var z = t.toString();
-        });
-
-     })
-
-
-	return res.json({
-        speech: 'The moisture is ',// + z + ' degrees',
-        displayText: 'The moisture is ',// + z + ' degrees',
-        source: 'Brad Auto Respond'
-    });
-
-});
 
 restService.listen((process.env.PORT || 8000), function() {
     console.log("Server up and listening");
