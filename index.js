@@ -21,11 +21,11 @@ restService.post('/echo', function(req, res) {
 
     var t = '23';
 
-    client.getLastEntryInFieldFeed(298464, 1,'',t); //same as API-Method "Retrieving the Last Entry in a Field Feed"
+    //client.getLastEntryInFieldFeed(298464, 1); //same as API-Method "Retrieving the Last Entry in a Field Feed"
 
 	return res.json({
-        speech: 'The temperature is ' + t + ' degrees',
-        displayText: 'The temperature is ' + t + ' degrees',
+        speech: 'The temperature is ' + client.getLastEntryInFieldFeed(298464, 1); + ' degrees',
+        displayText: 'The temperature is ' + client.getLastEntryInFieldFeed(298464, 1); + ' degrees',
         source: 'Brad Auto Respond'
     });
     //return res.json({
