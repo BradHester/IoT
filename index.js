@@ -16,11 +16,21 @@ restService.post('/echo', function(req, res) {
     var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
 	var ThingSpeakClient = require('thingspeakclient');
 	var client = new ThingSpeakClient();
+
+	//client.attachChannel(298464, { readKey:'A1FE5T3THYNCRH05'});
+
+    var t = new String(client.getLastEntryInFieldFeed(298464, 1)); //same as API-Method "Retrieving the Last Entry in a Field Feed"
+
 	return res.json({
-        speech: speech,
-        displayText: speech,
+        speech: t,
+        displayText: t,
         source: 'webhook-echo-sample'
     });
+    //return res.json({
+    //   speech: speech,
+    //    displayText: speech,
+    //    source: 'webhook-echo-sample'
+    //});
 });
 
 restService.post('/slack-test', function(req, res) {
