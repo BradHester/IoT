@@ -49,7 +49,7 @@ restService.post('/temperature', function(req, res) {
 //return res.json(response.JSON);
 
 	return res.json({
-        speech: 'The temperature is ' + len(t),
+        speech: 'The temperature is ',
         displayText: 'The temperature is ',
         source: 'Brad Auto Respond'
     });
