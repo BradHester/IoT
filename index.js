@@ -50,7 +50,7 @@ restService.post('/temperature', function(req, res) {
         body += data;
     });
     // After the response is completed, parse it and log it to the console
-    res.on('end', function() {
+    /*res.on('end', function() {
         var parsed = JSON.parse(body);
          console.log(parsed);
         });
@@ -59,7 +59,7 @@ restService.post('/temperature', function(req, res) {
         .on('error', function(e) {
         console.log("Got error: " + e.message);
         });
-	    //client.attachChannel(298464, { readKey:'A1FE5T3THYNCRH05'});
+	    //client.attachChannel(298464, { readKey:'A1FE5T3THYNCRH05'});*/
 
 	return res.json({
         speech: 'The temperature is ' + parsed + ' degrees',
