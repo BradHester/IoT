@@ -46,11 +46,13 @@ restService.post('/temperature', function(req, res) {
     }
 });
 
-	return res.json({
-        speech: 'The temperature is ',
-        displayText: 'The temperature is ',
-        source: 'Brad Auto Respond'
-    });
+return res.json(response);
+
+//	return res.json({
+//        speech: 'The temperature is ',
+//        displayText: 'The temperature is ',
+//        source: 'Brad Auto Respond'
+//    });
 
 });
 
