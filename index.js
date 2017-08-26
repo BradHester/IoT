@@ -21,9 +21,10 @@ restService.post('/echo', function(req, res) {
 
     client.getLastEntryInFieldFeed(298464, 1, function(err, response) {
     if (err == null) {
-        var t = response.field1;
+       var t = response;
     }
     });
+
 
 
     //client.getLastEntryInFieldFeed(298464, 1); //same as API-Method "Retrieving the Last Entry in a Field Feed"
