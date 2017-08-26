@@ -19,13 +19,18 @@ restService.post('/echo', function(req, res) {
 
 	//client.attachChannel(298464, { readKey:'A1FE5T3THYNCRH05'});
 
-    var t = '23';
+    client.getLastEntryInFieldFeed(298464, 1, function(err, response) {
+    if (err == null) {
+        console.log('read successfully. value is: ' + response.field1);
+    }
+    });
+
 
     //client.getLastEntryInFieldFeed(298464, 1); //same as API-Method "Retrieving the Last Entry in a Field Feed"
 
 	return res.json({
-        speech: 'The temperature is ' + client.getLastEntryInFieldFeed(298464, 1) + ' degrees',
-        displayText: 'The temperature is ' + client.getLastEntryInFieldFeed(298464, 1) + ' degrees',
+        speech: 'The temperature is ' + response.field1 + ' degrees',
+        displayText: 'The temperature is ' + response.field1 + ' degrees',
         source: 'Brad Auto Respond'
     });
     //return res.json({
