@@ -42,7 +42,7 @@ restService.post('/temperature', function(req, res) {
 
     client.getLastEntryInFieldFeed(298464, 1, function(err2, response) {
     if (err2 == null) {
-        var t =  '12'
+        var t =  '12';
     }
 });
 
