@@ -36,7 +36,7 @@ restService.post('/echo', function(req, res) {
 });
 
 restService.post('/temperature', function(req, res) {
-    //var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
+    var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
 	var ThingSpeakClient = require('thingspeakclient');
 	var client = new ThingSpeakClient();
 
@@ -46,11 +46,11 @@ restService.post('/temperature', function(req, res) {
     }
 });
 
-	return res.json(
-        speech: 'The temperature is ', // + t + ' degrees',
-        displayText: 'The temperature is ', // + t + ' degrees',
+	return res.json({
+        speech: 'The temperature is ',
+        displayText: 'The temperature is ',
         source: 'Brad Auto Respond'
-    );
+    });
 
 });
 
