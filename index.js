@@ -42,17 +42,17 @@ restService.post('/temperature', function(req, res) {
 
     client.getLastEntryInFieldFeed(298464, 1, function(err2, response) {
     if (err2 == null) {
-        var t =  '12';
+        var t =  response.field1;
     }
 });
 
-return res.json(response);
+//return res.json(response.JSON);
 
-//	return res.json({
-//        speech: 'The temperature is ',
-//        displayText: 'The temperature is ',
-//        source: 'Brad Auto Respond'
-//    });
+	return res.json({
+        speech: 'The temperature is ' + response.field1,
+        displayText: 'The temperature is '+ response.field1,
+        source: 'Brad Auto Respond'
+    });
 
 });
 
