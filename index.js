@@ -26,7 +26,7 @@ restService.post('/echo', function(req, res) {
 	return res.json({
         speech: t,
         displayText: t,
-        source: 'Brad Auto Responder'
+        source: 'Brad Auto Respond'
     });
     //return res.json({
     //   speech: speech,
