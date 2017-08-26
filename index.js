@@ -86,8 +86,8 @@ https.get("https://api.thingspeak.com/channels/298464/fields/1/last.json", (res)
 //return res.json(response.JSON);
 
 	return res.json({
-        speech: 'The temperature is ',
-        displayText: 'The temperature is ',
+        speech: 'The temperature is ' + t + ' degrees',
+        displayText: 'The temperature is ' + t + ' degrees',
         source: 'Brad Auto Respond'
     });
 
