@@ -42,23 +42,8 @@ restService.post('/temperature', function(req, res) {
 
 
     https.get("https://api.thingspeak.com/channels/298464/fields/1/last.json", (response) => {
-        var body = ''; // Will contain the final response
-    // Received data is a buffer.
-    // Adding it to our body
-     response.on('data', (d) => {
-        process.stdout.write(d);
-        });
-    // After the response is completed, parse it and log it to the console
-    //response.on('end', function() {
-    //    var parsed = JSON.parse(body);
-    //     console.log(parsed);
-    //    });
-     })
-        // If any error has occured, log error to console
-    //    .on('error', function(e) {
-    //    console.log("Got error: " + e.message);
-    //    });
-	    //client.attachChannel(298464, { readKey:'A1FE5T3THYNCRH05'});
+     var t = '';
+     });
 
 	return res.json({
         speech: 'The temperature is '// + parsed + ' degrees',
