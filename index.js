@@ -41,9 +41,9 @@ restService.post('/temperature', function(req, res) {
 	//var client = new ThingSpeakClient();
 
 
-    //https.get("https://api.thingspeak.com/channels/298464/fields/1/last.json", (response) => {
-    // var t = '';
-    // });
+    https.get("https://api.thingspeak.com/channels/298464/fields/1/last.json", (response) => {
+     var t = '';
+     });
 
 	return res.json({
         speech: 'The temperature is ',// + parsed + ' degrees',
