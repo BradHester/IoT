@@ -6,9 +6,21 @@
   "scripts": {
     "start": "node index.js"
   },
-  "author": "Sunil Syal",
+  "author": "Brad Hester",
   "dependencies": {
     "body-parser": "^1.15.0",
-    "express": "^4.13.4"
-  }
+    "express": "^4.13.4",
+	"thingspeakclient": "^0.4.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BradHester/IoT.git"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BradHester/IoT/issues"
+  },
+  "homepage": "https://github.com/BradHester/IoT#readme"
 }
