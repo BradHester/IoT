@@ -19,7 +19,7 @@ restService.post('/echo', function(req, res) {
 
 	//client.attachChannel(298464, { readKey:'A1FE5T3THYNCRH05'});
 
-    client.getLastEntryInFieldFeed(298464, 1, t);
+    //client.getLastEntryInFieldFeed(298464, 1, t);
 
     //client.getLastEntryInFieldFeed(298464, 1); //same as API-Method "Retrieving the Last Entry in a Field Feed"
 
