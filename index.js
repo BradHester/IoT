@@ -50,12 +50,12 @@ restService.post('/temperature', function(req, res) {
     // var t = '';
     // });
 
-	return res.json({
-        speech: 'The temperature is ',// + t + ' degrees',
+	return res.json(
+        //speech: 'The temperature is ',// + t + ' degrees',
         //displayText: 'The temperature is ',// + t + ' degrees',
-        displayText: response.field3,
-        source: 'Brad Auto Respond'
-    });
+        response
+        //source: 'Brad Auto Respond'
+    );
     //return res.json({
     //   speech: speech,
     //    displayText: speech,
