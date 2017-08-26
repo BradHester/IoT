@@ -40,17 +40,13 @@ restService.post('/temperature', function(req, res) {
 	var ThingSpeakClient = require('thingspeakclient');
 	var client = new ThingSpeakClient();
 
-	client.attachChannel(298464, { readKey:'A1FE5T3THYNCRH05'});
+	//client.attachChannel(298464, { readKey:'A1FE5T3THYNCRH05'});
 
-    client.getLastEntryInFieldFeed(298464, 1, function(err, response) {
-    if (err == null) {
-        console.log('read successfully. value is: ' + response.field1);
-    }
-    });
+    client.getLastEntryInFieldFeed(298464, 1, {}, response)
 
 	return res.json({
-        speech: 'The temperature is ' + response.field1 + ' degrees',
-        displayText: 'The temperature is ' + response.field1 + ' degrees',
+        speech: 'The temperature is ' + response + ' degrees',
+        displayText: 'The temperature is ' + response + ' degrees',
         source: 'Brad Auto Respond'
     });
     //return res.json({
