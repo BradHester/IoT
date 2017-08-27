@@ -78,16 +78,16 @@ restService.post('/temperature', function(req, res) {
      response.on('data', (d) => {
         //process.stdout.write(d);
         var parsed = JSON.parse(d)
-        t = parsed.field1.substring(0, parsed.field1.length-3);
+        var t = parsed.field1.substring(0, parsed.field1.length-3);
         console.log('The temperature is ' + t + ' degrees');
-
-        });
-
-    return res.json({
+        return res.json({
             speech: 'The temperature is ' + t + ' degrees',
             displayText: 'The temperature is '  + t + ' degrees',
             source: 'Brad Auto Respond'
             });
+        });
+
+
 
 
 });
