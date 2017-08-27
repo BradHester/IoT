@@ -46,8 +46,8 @@ restService.use(bodyParser.json());
 
 restService.post('/echo', function(req, res) {
     var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
-	var ThingSpeakClient = require('thingspeakclient');
-	var client = new ThingSpeakClient();
+	//var ThingSpeakClient = require('thingspeakclient');
+	//var client = new ThingSpeakClient();
 
 	//client.attachChannel(298464, { readKey:'A1FE5T3THYNCRH05'});
     var t = '18';
@@ -69,16 +69,17 @@ restService.post('/echo', function(req, res) {
 
 restService.post('/temperature', function(req, res) {
     var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
-    var t = 'Error has occurred';
+    var t = 'Error';
 
     const req1 = https.get("https://api.thingspeak.com/channels/298464/fields/1/last.json", (response) => {
     // Received data is a buffer.
     // Adding it to our body
+     console.log(response);
      response.on('data', (d) => {
         //process.stdout.write(d);
         var parsed = JSON.parse(d)
-        console.log(parsed);
         t = parsed.field1.substring(0, parsed.field1.length-3);
+        console.log(t);
         });
 
      })
