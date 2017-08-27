@@ -89,8 +89,8 @@ restService.post('/temperature', function(req, res) {
             source: 'Brad Auto Respond'
             });
 
-    req1.end();
 
+});
 
 });
 
