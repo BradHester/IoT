@@ -1,0 +1,10 @@
+CURL URL.
+
+https://www.hurl.it/
+https://ancient-taiga-21190.herokuapp.com/temperature
+
+
+
+POST http://ancient-taiga-21190.herokuapp.com/temperature
+
+Log of Heroku for stats.
