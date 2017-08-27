@@ -6,27 +6,27 @@ const http = require('http');
 const https = require('https');
 const restService = express();
 
-
 restService.use(bodyParser.urlencoded({
     extended: true
 }));
 
 restService.use(bodyParser.json());
 
-//const req = http.get("http://api.thingspeak.com/channels/298464/fields/1/last.json", (response) => {
+//const req = https.get("https://api.thingspeak.com/channels/298464/fields/1/last.json", (response) => {
 //    // Received data is a buffer.
 //    // Adding it to our body
-//     response.on('data', (d) => {
+//    response.on('data', (d) => {
 //        //process.stdout.write(d);
 //        var parsed = JSON.parse(d)
+//        console.log (parsed);
 //        var t = parsed.field1.substring(0, parsed.field1.length-3);
 //        var z = "{'speech':" + "'The temperature is " + t + " degrees'" + ",'displayText':'The temperature is "  + t + " degrees'" + ", 'source':'Brad Auto Respond'}";
-//        console.log(z);
-
+//        //console.log(z);
+//
 //        var obj = JSON.parse(z)
-
+//
 //        });
-
+//
 //     })
 //req.on('error',(e) => {
 //        t = e;
@@ -70,7 +70,8 @@ restService.post('/echo', function(req, res) {
 restService.post('/temperature', function(req, res) {
     var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
     var t = 'Error has occurred';
-    const req1 = http.get("http://api.thingspeak.com/channels/298464/fields/1/last.json", (response) => {
+
+    const req1 = https.get("https://api.thingspeak.com/channels/298464/fields/1/last.json", (response) => {
     // Received data is a buffer.
     // Adding it to our body
      response.on('data', (d) => {
@@ -91,9 +92,7 @@ restService.post('/temperature', function(req, res) {
         displayText: 'The temperature is '  + t + ' degrees',
         source: 'Brad Auto Respond'
     });
-
 });
-
 
 restService.listen((process.env.PORT || 8000), function() {
     console.log("Server up and listening");
