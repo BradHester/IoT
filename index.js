@@ -80,19 +80,17 @@ restService.post('/temperature', function(req, res) {
         var parsed = JSON.parse(d)
         t = parsed.field1.substring(0, parsed.field1.length-3);
         console.log(t);
+        return res.json({
+            speech: 'The temperature is ' + t + ' degrees',
+            displayText: 'The temperature is '  + t + ' degrees',
+            source: 'Brad Auto Respond'
+            });
         });
 
-     })
-    req1.on('error',(e) => {
-        t = e;
-    });
+
     req1.end();
 
-	return res.json({
-        speech: 'The temperature is ' + t + ' degrees',
-        displayText: 'The temperature is '  + t + ' degrees',
-        source: 'Brad Auto Respond'
-    });
+
 });
 
 restService.listen((process.env.PORT || 8000), function() {
