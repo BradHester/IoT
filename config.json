@@ -2,10 +2,14 @@
   "name": "Garden Integration Intents",
   "Temperature": {
     "APIURL": "https://api.thingspeak.com/channels/298464/fields/1/last.json",
-    "FieldName": "Field1"
+    "FieldName": "Field1",
+    "Prefix": "the temperature is ",
+    "Suffix": " degrees"
     },
   "Humidity": {
     "APIURL": "https://api.thingspeak.com/channels/298464/fields/2/last.json",
-    "FieldName": "Field2"
+    "FieldName": "Field2",
+    "Prefix": "the humidity is ",
+    "Suffix": " percent"
     }
 }
