@@ -1,0 +1,39 @@
+{
+  "id": "fc0d1bb3-7eb9-4468-afdd-b8d398e04570",
+  "timestamp": "2018-01-03T04:25:01.19Z",
+  "lang": "en",
+  "result": {
+    "source": "agent",
+    "resolvedQuery": "what is the temperature and humidity",
+    "action": "",
+    "actionIncomplete": false,
+    "parameters": {
+      "Garden_Entity": "",
+      "Humidity": ""
+    },
+    "contexts": [],
+    "metadata": {
+      "intentId": "0b701ca6-9822-4fca-b8e8-a0eab0067043",
+      "webhookUsed": "true",
+      "webhookForSlotFillingUsed": "false",
+      "webhookResponseTime": 2873,
+      "intentName": "Temperature and Humidity"
+    },
+    "fulfillment": {
+      "speech": "the temperature is 23 degrees and the humidity is 32 percent",
+      "messages": [
+        {
+          "type": 0,
+          "speech": "the temperature is 23 degrees and the humidity is 32 percent"
+        }
+      ]
+    },
+    "score": 1
+  },
+  "status": {
+    "code": 200,
+    "errorType": "success",
+    "webhookTimedOut": false
+  },
+  "sessionId": "21160c03-e2ae-4d6d-b0c1-035f814d5d35"
+}
