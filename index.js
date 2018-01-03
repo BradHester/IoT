@@ -1,11 +1,8 @@
 'use strict';
 let https = require('https');
 
-
-
 exports.handler = function(event, context, callback) {
 
-        
 var temperaturereturn = function() {
 return new Promise((resolve, reject) => {
     console.log('Starting Temperature...');
