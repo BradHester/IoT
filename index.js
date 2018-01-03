@@ -6,11 +6,9 @@ exports.handler = function(event, context, callback) {
 var temperaturereturn = function() {
 return new Promise((resolve, reject) => {
     console.log('Starting Temperature...');
-        console.log(gardenconfig.Temperature.APIURL);
-        https.get("https://api.thingspeak.com/channels/298464/fields/1/last.json", (response) => {
+        https.get(gardenconfig.Temperature.APIURL, (response) => {
         response.on('data', (d) => {
             var parsed = JSON.parse(d);
-            //console.log(parsed);
             var t = parsed.field1.substring(0, parsed.field1.length-3);
             let response = gardenconfig.Temperature.Prefix + t + gardenconfig.Temperature.Suffix;
             console.log(response);
